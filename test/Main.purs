@@ -1,16 +1,15 @@
 module Test.Main where
 
-import Prelude
+import Prelude (class Eq, class Show, Unit, bind, ($))
 
 import Browser.WebStorage (WebStorage)
 import Control.Monad.Eff (Eff)
 import Control.Monad.Eff.Class (liftEff)
 import Control.Monad.Eff.Console (CONSOLE)
-import Data.Argonaut.Decode
-import Data.Argonaut.Encode
-import Data.Generic
+import Data.Argonaut.Decode (class DecodeJson, gDecodeJson)
+import Data.Argonaut.Encode (class EncodeJson, gEncodeJson)
+import Data.Generic (class Generic, gEq, gShow)
 import Data.Maybe (Maybe(..))
-import Data.Tuple (Tuple(..))
 import Test.Spec (describe, it)
 import Test.Spec.Runner (Process, run)
 import Test.Spec.Assertions (fail, shouldEqual)
