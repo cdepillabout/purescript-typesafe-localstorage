@@ -1,9 +1,19 @@
 
-module Web.SafeStorage where
+module Browser.SafeStorage
+  ( class StorageKey
+  , storageKey
+  , class CanStore
+  , setItem
+  , getItem
+  , setItemGeneric
+  , setItemJson
+  , getItemGeneric
+  , getItemJson
+  ) where
 
 import Prelude (Unit, bind, const, (>>=), pure, ($), show, (<<<))
 
-import Browser.WebStorage (WebStorage(), localStorage)
+import Browser.WebStorage (WebStorage)
 import Browser.WebStorage as WebStorage
 import Control.Monad.Eff (Eff)
 import Data.Argonaut.Decode (class DecodeJson, decodeJson)
@@ -38,7 +48,7 @@ setItemGeneric :: forall eff a b . (StorageKey a)
 setItemGeneric f x item =
     let string = storageKey x
         itemString = f item
-    in WebStorage.setItem localStorage string itemString
+    in WebStorage.setItem WebStorage.localStorage string itemString
 
 setItemJson :: forall eff a b . (StorageKey a, EncodeJson b)
             => a -> b -> Eff (webStorage :: WebStorage | eff) Unit
@@ -48,7 +58,7 @@ getItemGeneric :: forall eff a b . (StorageKey a)
                => (String -> Maybe b) -> a -> Eff (webStorage :: WebStorage | eff) (Maybe b)
 getItemGeneric f x = do
     let string = storageKey x
-    maybeStringItem <- WebStorage.getItem localStorage string
+    maybeStringItem <- WebStorage.getItem WebStorage.localStorage string
     case maybeStringItem of
         Nothing -> pure Nothing
         Just stringItem -> pure $ f stringItem
