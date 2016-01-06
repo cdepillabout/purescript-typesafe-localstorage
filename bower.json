@@ -1,0 +1,25 @@
+{
+  "name": "purescript-typesafe-localstorage",
+  "version": "0.0.1",
+  "moduleType": [
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "output"
+  ],
+  "dependencies": {
+    "purescript-prelude": "^0.1",
+    "purescript-webstorage": "^0.4",
+    "purescript-argonaut-codecs": "^0.5",
+    "purescript-eff": "~0.1.2",
+    "purescript-maybe": "~0.3.5",
+    "purescript-either": "~0.2.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cdepillabout/purescript-typesafe-localstorage.git"
+  }
+}
