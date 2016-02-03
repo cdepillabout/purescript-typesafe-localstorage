@@ -1,6 +1,6 @@
 {
   "name": "purescript-typesafe-localstorage",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Typeclasses for wrapping Browser.WebStorage and making it typesafe.",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,6 @@
     "bower": "^1.7",
     "gulp": "^3.9",
     "pulp": "^6.1",
-    "purescript": "^0.8.0-rc.1"
+    "purescript": "^0.8.0"
   }
 }
