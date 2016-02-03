@@ -10,4 +10,4 @@ install:
     - bower install
 script:
     - pulp build
-    - pulp test
+      #- pulp test
